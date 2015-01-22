@@ -1,0 +1,15 @@
+<%= form_for (@hospital) do |f| %>
+<% if @hospital.errors.any? %>
+<% @hospital.errors.full_messages.each do |message| %>
+<%= message %>
+<br>
+<% end %>
+<% end %>
+<%= f.label :name %>
+<%= f.text_field :name %>
+<br>
+<%= f.label :location %>
+<%= f.text_field :location%>
+<br>
+<%= f.submit %> 
+<% end %>

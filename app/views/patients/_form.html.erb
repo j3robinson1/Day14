@@ -1,0 +1,30 @@
+<%= form_for [@hospital, @patient] do |f| %>
+<% if @patient.errors.any? %>
+<% @patient.errors.full_messages.each do |message| %>
+<%= message %>
+<br>
+<% end %>
+<% end %>
+<%= f.label :firstname %>
+<%= f.text_field :firstname %>
+<br>
+<%= f.label :lastname %>
+<%= f.text_field :lastname %>
+<br>
+<%= f.label :dob %>
+<%= f.date_field :dob %>
+<br>
+<%= f.label :symptoms %>
+<%= f.text_field :symptoms %>
+<br>
+<%= f.label :male %>
+<%= f.radio_button 'gender', 'male' %>
+<%= f.label :female %>
+<%= f.radio_button 'gender', 'female' %>
+<br>
+<%= f.label :bloodtype %>
+<%= f.select :bloodtype, options_for_select([ "A", "B", "AB", "O"]), include_blank: "--I dont know--" %>
+<br>
+<%= f.submit %> |
+<%= link_to "Back", root_path %>
+<% end %>
