@@ -3,7 +3,9 @@ class PatientsController < ApplicationController
     @patients = Patient.all
   end
   def show
-    @patient = Patient.find params[:id]
+    @hospital = Hospital.find(params[:hospital_id])
+    set_patient
+    @meds = @patient.meds
   end
   def new
     @hospital = Hospital.find params[:hospital_id]
@@ -23,12 +25,15 @@ class PatientsController < ApplicationController
     redirect_to patients_path
   end
   def destroy
-    @patient = Patient.find params[:id]
-    @patient.delete
+    set_patient
+    @patient.destroy
     redirect_to patients_path
   end
 
 private
+  def set_patient
+    @patient = Patient.find(params[:id])
+  end
   def patient_params
     params.require(:patient).permit(:firstname, :lastname, :dob, :symptoms, :gender, :bloodtype)
   end

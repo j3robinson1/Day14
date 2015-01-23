@@ -28,6 +28,7 @@ class HospitalsController < ApplicationController
     redirect_to hospitals_path
   end
   def destroy
+    set_hospital
     @hospital.destroy
   end
 private

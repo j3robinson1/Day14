@@ -1,3 +1,4 @@
+<%= link_to 'Back', hospitals_path %>|
 <h1>Show Patient</h1>
 <%= @patient.firstname %>
 <%= @patient.lastname %>
@@ -5,9 +6,11 @@
 <%= @patient.symptoms %>
 <%= @patient.gender %>
 <%= @patient.bloodtype %>
-<strong>Meds List:</strong></div>
-  <%= link_to "Add Medication", new_hospital_patient_med_path(@hospital) %>
-    <% @meds.each do |med| %>
-      <div><%= med.firstname %> <%= med.lastname %>
-      <%= link_to 'Show', hospital_patient_med_path(@hospital, med) %></div>
-    <% end %>
+<div><strong>Meds List:</strong></div>
+<%= link_to "Add Medication", new_hospital_patient_med_path(@hospital, @patient) %> 
+<% @meds.each do |med| %>
+      <div><%= med.name %> <%= med.direction %>
+      <%= link_to 'Show', hospital_patient_med_path(@hospital, @patient, med) %></div>
+      <%= link_to 'Edit', edit_hospital_patient_med_path(@hospital, @patient, med) %>
+<% end %>
+  

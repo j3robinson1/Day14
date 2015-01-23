@@ -3,31 +3,40 @@ class MedsController < ApplicationController
     @meds = Med.all
   end
   def show
-    @med = med.find params[:id]
+    @hospital = Hospital.find params[:hospital_id]
+    @patient = Patient.find params[:patient_id]
+    set_med
   end
   def new
-    @patient = patient.find params[:patient_id]
+    @hospital = Hospital.find params[:hospital_id]
+    @patient = Patient.find params[:patient_id]
     @med = @patient.meds.new
   end
   def create
-    @patient = patient.find params[:patient_id]
+    @hospital = Hospital.find params[:hospital_id]
+    @patient = Patient.find params[:patient_id]
     @med = @patient.meds.create med_params
-    redirect_to patient_path(@patient)
+    redirect_to hospital_patient_path(@hospital, @patient)
   end
   def edit
-    @med = med.find params[:id]
+    @hospital = Hospital.find params[:hospital_id]
+    @patient = Patient.find params[:patient_id]
+    @med = Med.find params[:id]
   end
   def update
-    @med = med.find params[:id]
+    @med = Med.find params[:id]
     @med.update_attributes med_params
-    redirect_to meds_path
+    redirect_to hospital_patient_med_path
   end
   def destroy
-    @med = med.find params[:id]
-    @med.delete
-    redirect_to meds_path
+    set_med
+    @med.destroy
+    redirect_to hospital_patient_path
   end
 private
+  def set_med
+    @med = Med.find(params[:id])
+  end
   def med_params
         params.require(:med).permit(:name, :direction)
 
