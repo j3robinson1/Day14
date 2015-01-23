@@ -3,6 +3,7 @@ class HospitalsController < ApplicationController
     @hospitals = Hospital.all
   end
   def show
+    set_hospital
     @patients = @hospital.patients
   end
   def new

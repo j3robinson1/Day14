@@ -1,9 +1,11 @@
+<%= link_to 'Back', hospitals_path %>|
+<%= link_to 'Edit', edit_hospital_path(@hospital) %>
 <h4>Name: <%= @hospital.name %></h4>
 <h4>Location: <%= @hospital.location %></h4>
-<strong>Patient List:</strong>
+<div>
+<strong>Patient List:</strong></div>
   <%= link_to "Add Patient", new_hospital_patient_path(@hospital) %>
     <% @patients.each do |patient| %>
-      <%= patient.name %> <%= patient.location %>
+      <div><%= patient.firstname %> <%= patient.lastname %>
+      <%= link_to 'Show', hospital_patient_path(@hospital, patient) %></div>
     <% end %>
-<%= link_to 'Edit', edit_hospital_path(@hospital) %> |
-<%= link_to 'Back', hospitals_path %>

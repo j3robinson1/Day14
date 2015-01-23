@@ -5,4 +5,9 @@
 <%= @patient.symptoms %>
 <%= @patient.gender %>
 <%= @patient.bloodtype %>
-<%= link_to "Home", root_path %>
+<strong>Meds List:</strong></div>
+  <%= link_to "Add Medication", new_hospital_patient_med_path(@hospital) %>
+    <% @meds.each do |med| %>
+      <div><%= med.firstname %> <%= med.lastname %>
+      <%= link_to 'Show', hospital_patient_med_path(@hospital, med) %></div>
+    <% end %>

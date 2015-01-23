@@ -1,0 +1,16 @@
+<%= form_for [@patient, @med] do |f| %>
+<% if @med.errors.any? %>
+<% @med.errors.full_messages.each do |message| %>
+<%= message %>
+<br>
+<% end %>
+<% end %>
+<%= f.label :name %>
+<%= f.text_field :name %>
+<br>
+<%= f.label :direction %>
+<%= f.text_field :direction %>
+<br>
+<%= f.submit %> |
+<%= link_to "Back", root_path %>
+<% end %>
