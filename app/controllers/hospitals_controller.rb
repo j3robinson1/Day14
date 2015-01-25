@@ -30,6 +30,7 @@ class HospitalsController < ApplicationController
   def destroy
     set_hospital
     @hospital.destroy
+    redirect_to hospitals_path
   end
 private
   def set_hospital
