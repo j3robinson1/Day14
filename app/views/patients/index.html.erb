@@ -1,8 +1,8 @@
-<%= link_to 'Back', hospitals_path %>|
-<h1>Show Patients</h1>
+<%= link_to 'Back', hospitals_path %>
+<h2>Patients</h2>
 <% @patients.each do |patient| %>
-<div>
-
+<div>hospital_id: 
+<%= patient.hospital_id %> ||
 <%= patient.firstname %>
 <%= patient.lastname %>
 <%= patient.dob %>
@@ -14,5 +14,3 @@
 <%= link_to 'Destroy', hospital_patient_path(@hospital, patient), method: :delete %>
 </div>
 <% end %>
-<br>
-  <%= link_to "Add Patient", new_hospital_patient_path(@hospital) %>

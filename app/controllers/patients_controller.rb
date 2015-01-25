@@ -19,11 +19,11 @@ class PatientsController < ApplicationController
   end
   def edit
     @hospital = Hospital.find params[:hospital_id]
-    @patient = Patient.find params[:id]
+    set_patient
   end
   def update
     @hospital = Hospital.find params[:hospital_id]
-    @patient = Patient.find params[:id]
+    set_patient
     @patient.update_attributes patient_params
     redirect_to hospital_patients_path
   end
