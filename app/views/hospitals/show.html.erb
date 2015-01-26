@@ -1,18 +1,15 @@
 <%= link_to 'Back', hospitals_path %>|
 <%= link_to 'Edit', edit_hospital_path(@hospital) %>
+<h2>Hospital</h2>
 <h4>Name: <%= @hospital.name %></h4>
 <h4>Location: <%= @hospital.location %></h4>
-<h1>Show Patients</h1>
-<% @patients.each do |patient| %>
-<div>
-<%= patient.firstname %>
-<%= patient.lastname %>
-<%= patient.dob %>
-<%= patient.symptoms %>
-<%= patient.gender %>
-<%= patient.bloodtype %>
-</div>
-<% end %>
 <br>
-  <%= link_to "Add Patient", new_hospital_patient_path(@hospital) %>
-  <%= link_to "show patients", hospital_patients_path(@hospital) %>
+<h3>This Hospitals Patients</h3>
+<% @patients.each do |patient| %>
+  <%= patient.lastname %>, <%= patient.firstname %>
+    <%= link_to "Show", hospital_patient_path(@hospital, patient) %>
+    <br>
+  <% end %> 
+
+  <div>
+  <%= link_to "Add Patient", new_hospital_patient_path(@hospital) %></div>

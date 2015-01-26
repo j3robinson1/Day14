@@ -1,11 +1,13 @@
-<%= link_to 'Back', hospitals_path %>|
-<%= link_to 'Edit', edit_hospital_path(@hospital) %>
+<%= link_to 'Back', hospital_patients_path %>|
+<%= link_to 'Edit', edit_hospital_patient_path(@hospital, @patient) %>
 <h4>firstname: <%= @patient.firstname %></h4>
 <h4>lastname: <%= @patient.lastname %></h4>
 <div>Meds</div>
 <% @meds.each do |med| %>
       <div><%= med.name %> <%= med.direction %>
-<% end %>
+        <%= link_to 'Show', hospital_patient_med_path(@hospital, @patient, med) %>
 
-  <%= link_to "Add Med", new_hospital_patient_med_path(@hospital, @patient) %>
-          <%= link_to "show meds", hospital_patient_med_path(@hospital, @patient) %>
+<% end %>
+<div>
+  <%= link_to "Add Med", new_hospital_patient_med_path(@hospital, @patient) %></div>
+

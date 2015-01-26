@@ -1,4 +1,4 @@
-<%= link_to 'Back', hospitals_path %>
+<%= link_to 'Back', hospital_path(@hospital) %>
 <h2>Patients</h2>
 <% @patients.each do |patient| %>
 <div>hospital_id: 
@@ -9,7 +9,7 @@
 <%= patient.symptoms %>
 <%= patient.gender %>
 <%= patient.bloodtype %>
-<%= link_to 'Show Meds', hospital_patient_path(@hospital, patient) %>
+<%= link_to 'Show', hospital_patient_path(@hospital, patient) %>
 <%= link_to 'Edit', edit_hospital_patient_path(@hospital, patient) %>
 <%= link_to 'Destroy', hospital_patient_path(@hospital, patient), method: :delete %>
 </div>

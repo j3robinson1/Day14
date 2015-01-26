@@ -2,7 +2,6 @@ class MedsController < ApplicationController
   def index
     @hospital = Hospital.find params[:hospital_id]
     @patient = Patient.find params[:patient_id]
-    set_med
     @meds = Med.all
   end
   def show
@@ -14,14 +13,13 @@ class MedsController < ApplicationController
   def new
     @hospital = Hospital.find params[:hospital_id]
     @patient = Patient.find params[:patient_id]
-    set_med
     @med = @patient.meds.new
   end
   def create
     @hospital = Hospital.find params[:hospital_id]
     @patient = Patient.find params[:patient_id]
     @med = @patient.meds.create med_params
-    redirect_to hospital_patient_path(@hospital, @patient)
+    redirect_to hospital_patient_med_path(@hospital, @patient, @med)
   end
   def edit
     @hopsital = Hospital.find params[:hospital_id]
@@ -33,14 +31,14 @@ class MedsController < ApplicationController
     @patient = Patient.find params[:patient_id]
     set_med    
     @med.update_attributes med_params
-    redirect_to hospital_patient_med_path
+    redirect_to hospital_patient_med_path(@hospital, @patient, @med)
   end
   def destroy
     @hopsital = Hospital.find params[:hospital_id]
     @patient = Patient.find params[:patient_id]
     set_med
     @med.destroy
-    redirect_to hospital_patient_med_path
+    redirect_to hospital_patient_med_path(@hospital, @patient, @med)
   end
 private
   def set_med
