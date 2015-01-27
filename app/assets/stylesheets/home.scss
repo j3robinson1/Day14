@@ -1,3 +1,58 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.topbar{
+  position: relative;
+  text-align: center;
+  background-color: #DE7373;
+  color: #941100;
+}
+.back{
+  background-color: #9EF2FF;
+  border-radius: 20%;
+}
+.back:hover{
+  background-color: #85D2DE;
+}
+.submit{
+  background-color: #ddd;
+}
+.submit:hover{
+  background-color: #white;
+}
+h1 {
+  color: #534E8A;
+  background-color: #FF9191;
+  border-bottom: 4px solid #534E8A;
+  border-right: 4px solid #534E8A;
+  border-top: 4px solid #534E8A;
+  border-left: 4px solid #534E8A;
+}
+.link {
+  color: #9EF2FF;
+  font-weight: bold;
+  text-align: left;
+  background-color: #BA4545;
+  border-bottom: 4px solid #534E8A;
+  border-top: 4px solid #534E8A;
+}
+div {
+  position: relative;
+  text-align: center;
+  color: #941100;
+}
+h4 {
+  color: #941100;
+  text-align: center;
+}
+h3, h2, .doctor {
+  text-align: center;
+  color: black;
+}
+.patients {
+  text-align: center;
+  color: black;
+}
+body {
+  background-color: #FFDEDE;
+}

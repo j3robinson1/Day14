@@ -1,13 +1,23 @@
-= link_to 'Back', hospital_patients_path
-|
-\#{link_to 'Edit', edit_hospital_patient_path(@hospital, @patient)}
+%div{ class: "topbar"}
+  %div{ class: "link"}
+    = link_to 'Back', hospital_patients_path, :class=>"back"
+    |
+    \#{link_to 'Edit', edit_hospital_patient_path(@hospital, @patient), :class=>"back"}
+  %h1 Patient
 %h4    
-  %div firstname: #{@patient.firstname}
-  %div lastname: #{@patient.lastname}
-  %div dob: #{@patient.dob}
-  %div symptoms: #{@patient.symptoms}
-  %div gender: #{@patient.gender}
-  %div bloodtype: #{@patient.bloodtype}
+  %div 
+    firstname: #{@patient.firstname}
+    %br
+    lastname: #{@patient.lastname}
+    %br
+    dob: #{@patient.dob}
+    %br
+    symptoms: #{@patient.symptoms}
+    %br
+    gender: #{@patient.gender}
+    %br
+    bloodtype: #{@patient.bloodtype}
+    %br
 %h3 Meds
 - @meds.each do |med|
   %div
@@ -17,12 +27,13 @@
 %div
   = link_to "Add Med", new_hospital_patient_med_path(@hospital, @patient, @med)
 %h2 Create Doctor
-=form_for @doctor, url: create_doctor_hospital_patient_path(@hospital, @patient) do |f|
-  = f.label :name
-  = f.text_field :name
-  %br
-  = f.submit
-  %br
-- @patient.doctors.each do |doctor|
-  = doctor.name
-  = link_to 'Destroy', delete_doctor_hospital_path(doctor), method: :delete
+%div{ class: "doctor"}
+  =form_for @doctor, url: create_doctor_hospital_patient_path(@hospital, @patient) do |f|
+    = f.label :name
+    = f.text_field :name
+    = f.submit
+    %br
+  - @patient.doctors.each do |doctor|
+    = doctor.name
+    = link_to 'Destroy', delete_doctor_hospital_path(doctor), method: :delete
+    %br/

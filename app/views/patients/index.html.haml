@@ -1,5 +1,7 @@
-= link_to 'Back', hospital_path(@hospital)
-%h2 Patients
+%div{ class: "topbar"}
+  %div{ class: "link"}
+    = link_to 'Back', hospital_path(@hospital), :class=>"back"
+  %h1 Patients
 - @patients.each do |patient|
   %div
     hospital_id:
