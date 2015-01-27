@@ -1,0 +1,12 @@
+%h1 Hospitals
+%div
+  = link_to 'back', root_path
+- @hospitals.each do |hospital|
+  = hospital.name
+  = hospital.location
+  = link_to 'Show', hospital_path(hospital)
+  = link_to 'Edit', edit_hospital_path(hospital)
+  = link_to 'Destroy', hospital_path(hospital), method: :delete
+  %br/
+%br/
+= link_to 'New hospital', new_hospital_path

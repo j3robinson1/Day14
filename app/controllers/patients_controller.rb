@@ -7,6 +7,18 @@ class PatientsController < ApplicationController
     @hospital = Hospital.find(params[:hospital_id])
     set_patient
     @meds = @patient.meds
+    @doctor = Doctor.new
+  end
+  def create_doctor
+    @hospital = Hospital.find(params[:hospital_id])
+    set_patient
+    @doctor = @patient.doctors.create doctor_params
+    redirect_to hospital_patient_path
+  end
+  def delete_doctor
+    @doctor = Doctor.find(params[:id])
+    @doctor.destroy
+    redirect_to hospital_patient_path
   end
   def new
     @hospital = Hospital.find params[:hospital_id]
@@ -37,6 +49,9 @@ class PatientsController < ApplicationController
 private
   def set_patient
     @patient = Patient.find(params[:id])
+  end
+  def doctor_params
+    params.require(:doctor).permit(:name)
   end
   def patient_params
     params.require(:patient).permit(:firstname, :lastname, :dob, :symptoms, :gender, :bloodtype)

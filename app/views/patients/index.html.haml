@@ -1,0 +1,10 @@
+= link_to 'Back', hospital_path(@hospital)
+%h2 Patients
+- @patients.each do |patient|
+  %div
+    hospital_id:
+    \#{patient.hospital_id} ||
+    \#{patient.firstname}#{patient.lastname}#{patient.dob}#{patient.symptoms}#{patient.gender}#{patient.bloodtype}
+    #{link_to 'Show', hospital_patient_path(@hospital, patient)}
+    #{link_to 'Edit', edit_hospital_patient_path(@hospital, patient)}
+    #{link_to 'Destroy', hospital_patient_path(@hospital, patient), method: :delete}

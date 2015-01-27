@@ -1,0 +1,10 @@
+= link_to 'Back', hospital_patient_path(@hospital, @patient)
+|
+%h3 Med List
+= link_to "New Med", new_hospital_patient_med_path
+- @meds.each do |med|
+  %div
+    = med.name
+    = med.direction
+    = link_to 'Edit', edit_hospital_patient_med_path(@hospital, @patient, med)
+    = link_to 'Destroy', hospital_patient_med_path(@hospital, @patient, med), method: :delete

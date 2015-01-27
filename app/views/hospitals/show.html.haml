@@ -1,0 +1,28 @@
+= link_to 'Back', hospitals_path
+|
+\#{link_to 'Edit', edit_hospital_path(@hospital)}
+%h2 Hospital
+%h4
+  Name: #{@hospital.name}
+%h4
+  Location: #{@hospital.location}
+%br/
+%h3 This Hospitals Patients
+- @patients.each do |patient|
+  = patient.lastname
+  , #{patient.firstname}
+  #{link_to "Show", hospital_patient_path(@hospital, patient)}
+  %br/
+%div
+  = link_to "Add Patient", new_hospital_patient_path(@hospital)
+%br
+%h2 Create Doctor
+=form_for @doctor, url: create_doctor_hospital_path(@hospital) do |f|
+  = f.label :name
+  = f.text_field :name
+  %br
+  = f.submit
+  %br
+- @hospital.doctors.each do |doctor|
+  = doctor.name
+  = link_to 'Destroy', delete_doctor_hospital_path(doctor), method: :delete

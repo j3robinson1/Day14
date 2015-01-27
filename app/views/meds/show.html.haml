@@ -1,0 +1,7 @@
+%h2 Meds
+- @meds.each do |med|
+  %div
+    = med.name
+    = med.direction
+    #{link_to 'Edit', edit_hospital_patient_med_path(@hospital, @patient, med)}
+    #{link_to 'Destroy', hospital_patient_med_path(@hospital, @patient, med), method: :delete}

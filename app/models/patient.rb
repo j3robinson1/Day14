@@ -2,6 +2,7 @@ class Patient < ActiveRecord::Base
   validate :check_dob
   belongs_to :hospital
   has_many :meds, dependent: :destroy
+  has_many :doctors, as: :doctorable
   def check_dob
     gap = 10.years.ago
     if self.dob > gap
