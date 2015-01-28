@@ -6,7 +6,9 @@
   text-align: center;
   background-color: #DE7373;
   color: #941100;
-}
+  opacity: .8;
+  border-right: 4px solid #534E8A;
+  border-left: 4px solid #534E8A;}
 .back{
   background-color: #9EF2FF;
   border-radius: 20%;
@@ -24,17 +26,15 @@ h1 {
   color: #534E8A;
   background-color: #FF9191;
   border-bottom: 4px solid #534E8A;
-  border-right: 4px solid #534E8A;
-  border-top: 4px solid #534E8A;
-  border-left: 4px solid #534E8A;
+  opacity: .9;
 }
 .link {
   color: #9EF2FF;
   font-weight: bold;
   text-align: left;
   background-color: #BA4545;
-  border-bottom: 4px solid #534E8A;
   border-top: 4px solid #534E8A;
+  opacity: .75;
 }
 div {
   position: relative;
