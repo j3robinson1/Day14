@@ -1,15 +1,12 @@
 %div{ class: "topbar"}
-  %div{ class: "link"}
-    = link_to 'back', root_path, :class=>"back"
-  %h1 Hospitals
-%div
+  %h1 hospitals
+%div{class: "info"}
   - @hospitals.each do |hospital|
     = hospital.name
     = hospital.location
-    = link_to 'Show', hospital_path(hospital)
-    = link_to 'Edit', edit_hospital_path(hospital)
-    = link_to 'Destroy', hospital_path(hospital), method: :delete
+    = link_to 'Show', hospital_path(hospital), class: "back"
+    = link_to 'Edit', edit_hospital_path(hospital), class: "back"
+    = link_to 'Destroy', hospital_path(hospital), method: :delete, class: "back"
     %br
 %div
-  = link_to 'New hospital', new_hospital_path
     

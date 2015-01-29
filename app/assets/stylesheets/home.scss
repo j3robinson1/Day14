@@ -1,17 +1,38 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.topbar{
-  position: relative;
-  text-align: center;
-  background-color: #DE7373;
-  color: #941100;
-  opacity: .8;
-  border-right: 4px solid #534E8A;
-  border-left: 4px solid #534E8A;}
 .back{
-  background-color: #9EF2FF;
+  background-color: #B3B3B3;
   border-radius: 20%;
+  border-bottom: 2px solid #B3B3B3;
+  border-top: 2px solid #B3B3B3;
+  border-left: 2px solid #B3B3B3;
+  border-right: 2px solid #B3B3B3;
+  margin-top: 10px;
+}
+.container img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.navbar{
+  background-color: #246DD4;
+  z-index: -1;
+  border-bottom: 2px solid #471F24;
+}
+.sidebar{
+  position: fixed;
+  height: 100%;
+  top: 0;
+  right: 0;
+  background-color: #246DD4;
+  opacity: .95;
+  z-index: +1;
+}
+.info{
+  position: absolute;
+  background-color: white;
+  opacity: .75;
 }
 .back:hover{
   background-color: #85D2DE;
@@ -23,8 +44,8 @@
   background-color: #white;
 }
 h1 {
-  color: #534E8A;
-  background-color: #FF9191;
+  color: #471F24;
+  background-color: #3F7FD9;
   border-bottom: 4px solid #534E8A;
   opacity: .9;
 }
@@ -37,12 +58,11 @@ h1 {
   opacity: .75;
 }
 div {
-  position: relative;
   text-align: center;
-  color: #941100;
+  color: #471F24;
 }
 h4 {
-  color: #941100;
+  color: #471F24;
   text-align: center;
 }
 h3, h2, .doctor {
@@ -54,5 +74,7 @@ h3, h2, .doctor {
   color: black;
 }
 body {
-  background-color: #FFDEDE;
+  background-color: #6B8AB5;
+  margin-right: 100;
+  opacity: .98
 }
