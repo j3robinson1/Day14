@@ -37,15 +37,16 @@ ActiveRecord::Schema.define(version: 20150126175944) do
   end
 
   create_table "patients", force: :cascade do |t|
-    t.string   "firstname",   limit: 255
-    t.string   "lastname",    limit: 255
+    t.string   "firstname",      limit: 255
+    t.string   "lastname",       limit: 255
     t.date     "dob"
-    t.text     "symptoms",    limit: 65535
-    t.text     "gender",      limit: 65535
-    t.text     "bloodtype",   limit: 65535
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
-    t.integer  "hospital_id", limit: 4
+    t.text     "symptoms",       limit: 65535
+    t.text     "gender",         limit: 65535
+    t.text     "bloodtype",      limit: 65535
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.integer  "hospital_id",    limit: 4
+    t.string   "workflow_state", limit: 255
   end
 
 end

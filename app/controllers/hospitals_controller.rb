@@ -15,7 +15,7 @@ class HospitalsController < ApplicationController
   def delete_doctor
     @doctor = Doctor.find params[:id]
     @doctor.destroy
-    redirect_to hospitals_path
+    redirect_to hospital_path
   end
   def new
     @hospital = Hospital.new

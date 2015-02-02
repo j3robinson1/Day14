@@ -3,7 +3,7 @@
     = link_to 'Back', hospitals_path, :class=>"back"
     |
     \#{link_to 'Edit', edit_hospital_path(@hospital), :class=>"back"}
-= link_to 'New hospital', new_hospital_path
+    = link_to 'New hospital', new_hospital_path
   %h1 Hospital
 %h4
   Name: #{@hospital.name}
@@ -21,7 +21,7 @@
 %br
 %h2 Create Doctor
 %div{ class: "doctor"}
-  =form_for @doctor, url: create_doctor_hospital_path(@hospital) do |f|
+  -form_for @doctor, url: create_doctor_hospital_path(@hospital) do |f|
     = f.label :name
     = f.text_field :name
     = f.submit
@@ -29,4 +29,3 @@
   - @hospital.doctors.each do |doctor|
     = doctor.name
     = link_to 'Destroy', delete_doctor_hospital_path(doctor), method: :delete
-    %br/

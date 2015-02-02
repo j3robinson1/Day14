@@ -1,12 +1,33 @@
-%div{ class: "topbar"}
-  %div{ class: "link"}
-    = link_to 'Back', hospital_path(@hospital), :class=>"back"
-  %h1 Patients
+
+%h1 Patients
 - @patients.each do |patient|
   %div
+    |||||||||
+    = patient.workflow_state
+    |||||||||
     hospital_id:
     \#{patient.hospital_id} ||
     \#{patient.firstname}#{patient.lastname}#{patient.dob}#{patient.symptoms}#{patient.gender}#{patient.bloodtype}
     #{link_to 'Show', hospital_patient_path(@hospital, patient)}
     #{link_to 'Edit', edit_hospital_patient_path(@hospital, patient)}
     #{link_to 'Destroy', hospital_patient_path(@hospital, patient), method: :delete}
+    -if patient.waiting_room?
+      = link_to "wait", waiting_room_hospital_patient_path(@hospital, patient), method: :patch
+      = link_to "checkup", doctor_checkup_hospital_patient_path(@hospital, patient), method: :patch
+      = link_to "xray", xray_appointment_hospital_patient_path(@hospital, patient), method: :patch
+      = link_to "surgery", surgery_appointment_hospital_patient_path(@hospital, patient), method: :patch
+    -if patient.doctor_checkup? || patient.xray_appointment?
+      = link_to "wait", waiting_room_hospital_patient_path(@hospital, patient), method: :patch
+      = link_to "checkup", doctor_checkup_hospital_patient_path(@hospital, patient), method: :patch
+      = link_to "xray", xray_appointment_hospital_patient_path(@hospital, patient), method: :patch
+      = link_to "surgery", surgery_appointment_hospital_patient_path(@hospital, patient), method: :patch
+      = link_to "pay", pay_bills_hospital_patient_path(@hospital, patient), method: :patch
+      = link_to "leave", leaving_hospital_patient_path(@hospital, patient), method: :patch
+    -if patient.surgery_appointment?
+      = link_to "checkup", doctor_checkup_hospital_patient_path(@hospital, patient), method: :patch
+      = link_to "xray", xray_appointment_hospital_patient_path(@hospital, patient), method: :patch
+      = link_to "surgery", surgery_appointment_hospital_patient_path(@hospital, patient), method: :patch
+      = link_to "pay", pay_bills_hospital_patient_path(@hospital, patient), method: :patch
+      = link_to "leave", leaving_hospital_patient_path(@hospital, patient), method: :patch
+    -if patient.pay_bills?
+      = link_to "leave", leaving_hospital_patient_path(@hospital, patient), method: :patch

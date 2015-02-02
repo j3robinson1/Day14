@@ -8,6 +8,12 @@ Rails.application.routes.draw do
       member do
         post :create_doctor
         delete :delete_doctor
+        patch :waiting_room
+        patch :doctor_checkup
+        patch :xray_appointment
+        patch :surgery_appointment
+        patch :pay_bills
+        patch :leaving
       end
             resources :meds
     end
