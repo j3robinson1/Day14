@@ -1,80 +1,63 @@
-// Place all the styles related to the home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-.back{
-  background-color: #B3B3B3;
-  border-radius: 20%;
-  border-bottom: 2px solid #B3B3B3;
-  border-top: 2px solid #B3B3B3;
-  border-left: 2px solid #B3B3B3;
-  border-right: 2px solid #B3B3B3;
-  margin-top: 10px;
+.navbar {
+  background-color: #A8AEBF;
+  border-bottom: 1px solid white;
 }
-.container img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-.navbar{
-  background-color: #246DD4;
-  z-index: -1;
-  border-bottom: 2px solid #471F24;
-}
-.sidebar{
-  position: fixed;
-  height: 100%;
-  top: 0;
-  right: 0;
-  background-color: #246DD4;
-  opacity: .95;
-  z-index: +1;
-}
-.info{
-  position: absolute;
-  background-color: white;
-  opacity: .75;
-}
-.back:hover{
-  background-color: #85D2DE;
-}
-.submit{
-  background-color: #ddd;
-}
-.submit:hover{
-  background-color: #white;
-}
-h1 {
-  color: #471F24;
-  background-color: #3F7FD9;
-  border-bottom: 4px solid #534E8A;
-  opacity: .9;
-}
-.link {
-  color: #9EF2FF;
+.button {
   font-weight: bold;
-  text-align: left;
-  background-color: #BA4545;
-  border-top: 4px solid #534E8A;
-  opacity: .75;
+  border-radius: 20%;
+  border-bottom: 2px solid black;
+  border-top: 2px solid black;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+  background-color: #B8B3C7;
 }
-div {
-  text-align: center;
-  color: #471F24;
+.button:hover {
+  color: #000EAD;
+  background-color: gray;
 }
-h4 {
-  color: #471F24;
+.body-content-style {
   text-align: center;
+  margin-top: 110px;
 }
-h3, h2, .doctor {
+.sidebar-style {
+  position: absolute;
   text-align: center;
-  color: black;
+  top: 8%;
+  left: 0;
+  background-color: #A8AEBF;
+  height: 100%;
+  border-right: 1px solid white;
 }
-.patients {
+.todo-style {
+  position: absolute;
+  background-color: #E3D588;
   text-align: center;
-  color: black;
+  left: 0;
+  bottom: 0;
+  height: 19%;
+}
+.front {
 }
 body {
-  background-color: #6B8AB5;
-  margin-right: 100;
-  opacity: .98
+  background-color: #BDC4DE;
+}
+.glyph {
+  color: black;
+}
+.glyph:hover {
+  color: #000EAD;
+}
+h1 {
+  color: #5A6496;
+}
+li {
+  text-align: left;
+  border-bottom: 1px solid black;
+}
+.body-content-style {
+  margin-left: 27%;
+  width: 75%;
+}
+.align-left {
+  text-align: left;
 }

@@ -1,5 +1,5 @@
 %div{ class: "topbar"}
-  %h1 hospitals
+  %h1 Hospitals
 = form_tag hospitals_path, method: :get, class: "form-search", role: "search" do
   .input-group
     =text_field_tag 'search', params[:search], class: "form-control", id: "srch-term", placeholder: "Search"
