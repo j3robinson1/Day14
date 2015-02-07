@@ -1,7 +1,11 @@
 %div{ class: "topbar"}
-  %div{ class: "link"}
-    = link_to 'Back', hospital_patient_path(@hospital, @patient), :class=>"back"
   %h1 Med List
+= form_tag hospital_patient_meds_path, method: :get, class: "form-search", role: "search" do
+  .input-group
+    =text_field_tag 'search', params[:search], class: "form-control", id: "srch-term", placeholder: "Search"
+    .input-group-btn
+      %button.btn.btn-default{:style => "width:40px;"}
+        %span.glyphicon.glyphicon-search  
 - @meds.each do |med|
   %div
     = med.name

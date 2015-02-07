@@ -3,10 +3,14 @@ class PatientsController < ApplicationController
   before_action :set_patient, only: [:show, :edit, :update, :destroy, :waiting_room, :doctor_checkup, :xray_appointment, :surgery_appointment, :pay_bills, :leaving]
   def index
     @hospital = Hospital.find params[:hospital_id]
+    if !params[:search].blank?
+      @patients = Patient.where("firstname LIKE ?", "%#{params[:search]}%")
+    else  
     @patients = Patient.all
+    end
   end
   def show
-    @hospital = Hospital.find(params[:hospital_id])
+    @hospital = Hospital.find params[:hospital_id]
     set_patient
     @meds = @patient.meds
     @doctor = Doctor.new

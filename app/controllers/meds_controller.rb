@@ -2,7 +2,11 @@ class MedsController < ApplicationController
   def index
     @hospital = Hospital.find params[:hospital_id]
     @patient = Patient.find params[:patient_id]
+    if !params[:search].blank?
+      @meds = Med.where("firstname LIKE ?", "%#{params[:search]}%")
+    else  
     @meds = Med.all
+    end
   end
   def show
     @hospital = Hospital.find params[:hospital_id]

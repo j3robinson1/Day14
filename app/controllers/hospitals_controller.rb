@@ -1,6 +1,10 @@
 class HospitalsController < ApplicationController
   def index
+    if !params[:search].blank?
+      @hospitals = Hospital.where("name LIKE ?", "%#{params[:search]}%")
+    else  
     @hospitals = Hospital.all
+    end
   end
   def show
     set_hospital

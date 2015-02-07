@@ -1,10 +1,6 @@
 %div{ class: "topbar"}
-  %div{ class: "link"}
-    = link_to 'Back', hospitals_path, :class=>"back"
-    |
-    \#{link_to 'Edit', edit_hospital_path(@hospital), :class=>"back"}
-    = link_to 'New hospital', new_hospital_path
   %h1 Hospital
+
 %h4
   Name: #{@hospital.name}
 %h4
