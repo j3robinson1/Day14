@@ -17,7 +17,7 @@
 %br
 %h2 Create Doctor
 %div{ class: "doctor"}
-  -form_for @doctor, url: create_doctor_hospital_path(@hospital) do |f|
+  =form_for @doctor, url: create_doctor_hospital_path(@hospital) do |f|
     = f.label :name
     = f.text_field :name
     = f.submit
