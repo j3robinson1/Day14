@@ -19,17 +19,15 @@
           %span.icon-bar
       .nav-collapse.collapse
         = render 'layouts/navbar'
-    %div.container-sidebar
-      %div.row
-        %div.col-md-4.sidebar-style
+    .container-sidebar
+      .row
+        .col-sm-3.sidebar-style
           = render 'layouts/sidebar'
-      %div.container
-        %div.row
-          %div.col-md-4
-            %div.col-md-10
-              %div.body-content-style
-                - if flash[:notice]
-                  %h5#notice= flash[:notice]
-                - if flash[:error]
-                  %h5#error= flash[:error]
-                = yield
+      .container
+        .row
+          .body-content-style
+            - if flash[:notice]
+              %h5#notice= flash[:notice]
+            - if flash[:error]
+              %h5#error= flash[:error]
+            = yield

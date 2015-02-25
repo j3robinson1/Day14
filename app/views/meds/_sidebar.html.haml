@@ -1,5 +1,6 @@
-%i.button
-  = link_to 'Show meds', hospital_patient_meds_path(@hospital)
-  %br
-%i.button
+%br
+%i.btn.btn-default
+  = link_to 'Show meds', hospital_patient_meds_path(@hospital, @patient)
+%br
+%i.btn.btn-default
   = link_to 'New Med', new_hospital_patient_med_path
