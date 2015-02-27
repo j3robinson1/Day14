@@ -10,6 +10,10 @@ describe HospitalsController do
     expect(assigns(:hospital).class).to eq Hospital
     expect(assigns(:patients)).to eq []
   end
+  it 'should initialize doctor' do
+    get :show, id: hospital
+    expect(assigns(:doctor)).to eq Doctor.new
+  end
 end
   describe 'POST #create_doctor' do
     it 'should create a doctor' do
@@ -19,6 +23,20 @@ end
       expect(assigns(:doctor).doctorable_id).to eq hospital.id
       expect(assigns(:doctor).doctorable_type).to eq "Hospital"
       expect(response).to redirect_to hospital_path(hospital)
+    end
+  end
+  describe 'GET #new' do
+    it 'should initialize a hospital' do
+      get :new
+      expect(assigns(:hospital).class).to eq Hospital
+    end
+  end
+  describe 'POST #destroy' do
+    it 'should delete hospital' do
+      expect(assigns(:hospital)).to eq nil
+    end
+    it 'should redirect to hospitals_path' do
+      expect(response).to redirect_to hospitals_path
     end
   end
   describe 'GET #index' do
