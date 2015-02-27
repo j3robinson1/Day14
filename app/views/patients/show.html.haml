@@ -19,7 +19,7 @@
   %div
     = med.name
     = med.direction
-    = link_to 'Show', hospital_patient_meds_path(@hospital, @patient, med)
+    = link_to 'Show', hospital_patient_med_path(@hospital, @patient, med)
 %div
   = link_to "Add Med", new_hospital_patient_med_path(@hospital, @patient, @med)
 %h2 Create Doctor
