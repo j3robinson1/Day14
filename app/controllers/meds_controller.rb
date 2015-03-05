@@ -1,7 +1,7 @@
 class MedsController < ApplicationController
   def index
-    @hospital = Hospital.find params[:hospital_id]
-    @patient = Patient.find params[:patient_id]
+    set_hospital
+    set_patient
     if !params[:search].blank?
       @meds = Med.where("name LIKE ?", "%#{params[:search]}%")
     else  
@@ -9,42 +9,45 @@ class MedsController < ApplicationController
     end
   end
   def show
-    @hospital = Hospital.find params[:hospital_id]
-    @patient = Patient.find params[:patient_id]
+    set_hospital
+    set_patient
     set_med
-    @meds = @patient.meds
   end
   def new
-    @hospital = Hospital.find params[:hospital_id]
-    @patient = Patient.find params[:patient_id]
+    set_hospital
+    set_patient
     @med = @patient.meds.new
   end
   def create
-    @hospital = Hospital.find params[:hospital_id]
-    @patient = Patient.find params[:patient_id]
+    set_hospital
+    set_patient
     @med = @patient.meds.create med_params
-    redirect_to hospital_patient_meds_path(@hospital, @patient, @med)
+    redirect_to hospital_patient_path(@hospital, @patient)
   end
   def edit
-    @hospital = Hospital.find params[:hospital_id]
-    @patient = Patient.find params[:patient_id]
+    set_hospital
+    set_patient
     set_med
   end
   def update
-    @hospital = Hospital.find params[:hospital_id]
-    @patient = Patient.find params[:patient_id]
+    set_hospital
+    set_patient
     set_med    
     @med.update_attributes med_params
-    redirect_to hospital_patient_meds_path(@hospital, @patient, @med)
+    redirect_to hospital_patient_path(@hospital, @patient)
   end
   def destroy
-    @hospital = Hospital.find params[:hospital_id]
-    @patient = Patient.find params[:patient_id]
     set_med
     @med.destroy
     redirect_to hospital_patient_meds_path(@hospital, @patient, @med)
   end
 private
+  def set_hospital
+    @hospital = Hospital.find(params[:hospital_id])
+  end
+  def set_patient
+    @patient = Patient.find(params[:patient_id])
+  end
   def set_med
     @med = Med.find params[:id]
   end

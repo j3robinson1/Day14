@@ -8,9 +8,9 @@
         %span.glyphicon.glyphicon-search
 %div{class: "info"}
   - @hospitals.each do |hospital|
-    = hospital.name
-    = hospital.location
-    = link_to 'Show', hospital_path(hospital), class: "back"
+    .btn.btn-default
+      = link_to hospital_path(hospital) do
+        = hospital.name
     = link_to 'Edit', edit_hospital_path(hospital), class: "back"
     = link_to 'Destroy', hospital_path(hospital), method: :delete, class: "back"
     %br

@@ -7,13 +7,15 @@
   Location: #{@hospital.location}
 %br/
 %h3 This Hospitals Patients
-%div{ class: "patients"}
-  - @patients.each do |patient|
-    = patient.lastname
-    , #{patient.firstname}
-    #{link_to "Show", hospital_patient_path(@hospital, patient)}
-    %br/
-  = link_to "Add Patient", new_hospital_patient_path(@hospital)
+- @patients.each do |patient|
+  .btn.btn-default
+    = link_to hospital_patient_path(@hospital, patient) do
+      = patient.lastname
+      ,
+      = patient.firstname
+  %br/
+%div
+  = link_to "Add Patient", new_hospital_patient_path(@hospital, @patient)
 %br
 %h2 Create Doctor
 %div{ class: "doctor"}

@@ -17,9 +17,9 @@
 %h3 Meds
 - @meds.each do |med|
   %div
-    = med.name
-    = med.direction
-    = link_to 'Show', hospital_patient_med_path(@hospital, @patient, med)
+    .btn.btn-default
+      = link_to hospital_patient_med_path(@hospital, @patient, med) do
+        = med.name
 %div
   = link_to "Add Med", new_hospital_patient_med_path(@hospital, @patient, @med)
 %h2 Create Doctor
