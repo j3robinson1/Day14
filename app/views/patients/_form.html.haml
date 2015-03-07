@@ -2,7 +2,7 @@
   - if @patient.errors.any?
     - @patient.errors.full_messages.each do |message|
       = message
-      %br/
+    %br/
   = f.label :firstname
   = f.text_field :firstname
   %br/
